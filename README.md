@@ -7,7 +7,7 @@ A Postgres database accessed using Golang. GUI constructed using Javascript and 
 Back-end files: 
 * `import.sql` contains the create table scripts
 * `listofqueries.sql` contains the queries used. Also in `queries.go`
-* `queries.go` and `db.go` connects to the database.
+* `queries.go` and `db.go` connect to the database.
 
 Front-end files:
 * `index.js`
