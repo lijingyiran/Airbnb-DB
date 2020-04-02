@@ -1,0 +1,94 @@
+<!--- make buttons --->
+<!--- part of the gui that we can see --->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <!-- get employee's race button -->
+    <input id="race1" type="text" placeholder="Get all employees by race">
+    <button id="employees">Get</button>
+  </div>
+
+  <div>
+    <!-- get money transfers button -->
+    <input id="money" type="text" placeholder="Get by amount">
+    <input id="date" type="text" placeholder="Get by date">
+    <button id="transfer">Get all info </button>
+  </div>
+
+  <div>
+    <!-- get money transfers JOIN button -->
+    <input id="money2" type="text" placeholder="Get by amount">
+    <input id="date2" type="text" placeholder="Get by date">
+    <button id="transfer2">Get account num</button>
+  </div>
+
+  <div>
+    <!-- get guests button -->
+    <input id="host" type="text" placeholder="Get by host account id">
+    <button id="guests">Get guests</button>
+  </div>
+
+  <div>
+    <!-- get staffid button -->
+    <button id="staffid">Get staff ID and commission amount</button>
+  </div>
+
+  <div>
+    <!-- add employee button -->
+    <input id="staff-id" type="text" placeholder="Enter staffid">
+    <input id="age" type="text" placeholder="Enter age">
+    <input id="race2" type="text" placeholder="Enter race">
+    <button id="add-employee">Add employee</button>
+  </div>
+
+  <div>
+    <!-- delete staff button -->
+    <input id="staff-id2" type="text" placeholder="Enter staffid">
+    <button id="delete-staff">Delete staff</button>
+  </div>
+
+    <!-- delete upcomingbooking button -->
+    <input id="upcomingbooking" type="text" placeholder="Enter confirmation number">
+    <button id="delete-upcomingbooking">Delete upcoming booking</button>
+  </div>
+
+  <div>
+    <!-- update ziphood button -->
+    <input id="zip1" type="text" placeholder="Enter the zipcode to update">
+    <input id="zip2" type="text" placeholder="Enter the new zipcode">
+    <input id="houselocation" type="text" placeholder="Enter the new houselocation">
+    <button id="update-ziphood">Update ziphood</button>
+  </div>
+
+  <div>
+    <!-- get avg moneytransfer button -->
+    <input id="money-date" type="text" placeholder="Enter the date">
+    <button id="get-avg-money">Get avg money transfer by date</button>
+  </div>
+
+  <div>
+    <!-- find all guests (by SIN) who viewed all listings button -->
+    <button id="get-guests">Get guests' SIN that viewed all listings</button>
+  </div>
+
+  <div>
+    <!-- get accounts that have higher listing than x button -->
+    <input id="listing-id" type="text" placeholder="Enter the listing ID">
+    <button id="get-account-rating">Get accounts that have a higher rating that the provided listing</button>
+  </div>
+
+  <!-- displays the results -->
+  <div id="sql-results"></div>
+</body>
+<!-- load the javascript -->
+<script src="./index.js"></script>
+</html>
