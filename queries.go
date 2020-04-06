@@ -4,6 +4,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -273,7 +274,7 @@ func main() {
 	})
 
 
-authAPI.DELETE("/delete_upcomingbooking", func(c echo.Context) error {
+	authAPI.DELETE("/delete_upcomingbooking", func(c echo.Context) error {
 		if _, err := dbx.Exec(
 			`
 			delete from UpcomingBooking
@@ -295,6 +296,41 @@ authAPI.DELETE("/delete_upcomingbooking", func(c echo.Context) error {
 			log.Fatal(err)
 		}
 		return c.JSON(http.StatusOK, upcomingbooking)
+	})
+
+	authAPI.GET("/get_projection", func(c echo.Context) error {
+		var results []string
+		if err := dbx.Select(
+			&results,
+			fmt.Sprintf(
+				"select %s from employee", c.QueryParam("projection"),
+			),
+		); err != nil {
+			log.Fatal(err)
+		}
+		return c.JSON(http.StatusOK, results)
+	})
+
+	authAPI.GET("/get_join", func(c echo.Context) error {
+		rows, err := dbx.Queryx(
+			fmt.Sprintf(
+				"select * from %s, %s", c.QueryParam("table1"), c.QueryParam("table2"),
+			),
+		)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		var results []interface{}
+		for rows.Next() {
+			result := make(map[string]interface{})
+			err = rows.MapScan(result)
+			if err != nil {
+				log.Fatal(err)
+			}
+			results = append(results, result)
+		}
+		return c.JSON(http.StatusOK, results)
 	})
 
 	port := os.Getenv("PORT")

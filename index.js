@@ -223,4 +223,34 @@ window.onload = () => {
       document.getElementById('sql-results').innerText += data[element].ListingID + " " + data[element].HostAccountNum + "\n"; // displays SQL data
     }
   }
+
+  // when project is clicked
+  document.getElementById("get-projection").onclick = async (event) => {
+    const projection = document.getElementById('projection-id').value;
+    document.getElementById('sql-results').innerText = ""; // displays the SQL data
+    // calls the api and passes the race2 id
+    const res = await fetch('http://localhost:1323/api/get_projection?projection=' + projection);
+    const data = await res.json();
+
+    document.getElementById('sql-results').innerText = data; // displays SQL data
+  }
+
+  // when project is clicked
+  document.getElementById("get-join").onclick = async (event) => {
+    const table1 = document.getElementById('join1').value;
+    const table2 = document.getElementById('join2').value;
+    document.getElementById('sql-results').innerText = ""; // displays the SQL data
+    // calls the api and passes the race2 id
+    const res = await fetch('http://localhost:1323/api/get_join?table1=' + table1 + '&table2=' + table2);
+    const data = await res.json();
+
+    console.log(data)
+    for (element in data) {
+      console.log(Object.keys(data[element]))
+      let row = '';
+      Object.keys(data[element]).forEach(key => row += key + ": " + data[element][key] + " ")
+      row += "\n"
+      document.getElementById('sql-results').innerText += row; // displays SQL data
+    }
+  }
 }
