@@ -440,4 +440,8 @@ create table Contain_Order(
 	8. update ziphood table
 	9. get average amount of money transfer by date
 	10. get all guests who viewed all listings
+	11. find listing id and host account number with the rating higher than every listing with ID blah
+	12. get an user specified column from employee table
+	13. join any 2 user specified tables
+	
 */

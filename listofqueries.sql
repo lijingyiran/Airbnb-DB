@@ -86,3 +86,10 @@ where confirmationnum = $1
 select ListingID, HostAccountNum
 from Review_Info
 where rating > (select Max(rating) from Review_Info where listingId = $1)
+
+
+select some_col
+from employee
+
+select *
+from table1, table2
